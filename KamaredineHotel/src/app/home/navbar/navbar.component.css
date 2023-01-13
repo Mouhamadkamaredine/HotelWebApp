@@ -1,0 +1,7 @@
+.navbar-brand {
+  padding-left: 15px;
+}
+
+.nav-link dropdown-toggle {
+  cursor: pointer;
+}

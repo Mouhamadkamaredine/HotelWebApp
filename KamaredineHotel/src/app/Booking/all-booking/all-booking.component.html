@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="banner">
+
+ 
+     
+      <table class="table" datatable [dtOptions]="dtOptions" >
+        <thead >
+          <tr>
+            <th scope="col">Room Number</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">country</th>
+            <th scope="col">City </th>
+            <th scope="col"> Address</th>
+            <th scope="col">Zip code</th>
+            <th scope="col">Room quantity</th>
+            <th scope="col">adult</th>
+            <th scope="col">child </th>
+            <th scope="col"> checkin</th>
+            <th scope="col"> checkout</th>
+            <th scope="col"> TimeArrive</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pd of filtredproduct ">
+            <td>{{pd.roomNb}}</td>
+            <td>{{pd.firstName}}</td>
+            <td>{{pd.lastName}}</td>
+            <td>{{pd.email}}</td>
+            <td>{{pd.phone}}</td>
+            <td>{{pd.country}}</td>
+            <td>{{pd.city}}</td>
+            <td>{{pd.address}}</td>
+            <td>{{pd.zipCode}}</td>
+
+            <td>{{pd.roomCount}}</td>
+            <td>{{pd.adult}}</td>
+            <td>{{pd.child}}</td>
+            <td>{{pd.checkin}}</td>
+            <td>{{pd.checkout}}</td>
+            <td>{{pd.timeArrive}}</td>
+            <td>
+              <button class="btn btn-danger" (click)="onDelete(pd.bookingId)">Delete</button>
+            </td>
+            <td>
+              <button class="btn btn-primary" (click)="OnEdit(pd.bookingId)">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+

@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="banner">
+  <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search...">
+  <div class="col-md-6">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>email</th>
+          <th>Phone</th>
+          <th>country</th>
+          <th>City </th>
+          <th> Address</th>
+          <th>Zip code</th>
+          <th>Gender</th>
+          <th>Role</th>
+          <th>Education </th>
+          <th> Date OfBirth</th>
+
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let pd of service.list | filter:searchText">
+
+          <td (click)="populateForm(pd)">{{pd.firstName}}</td>
+          <td (click)="populateForm(pd)">{{pd.lastName}}</td>
+          <td (click)="populateForm(pd)">{{pd.email}}</td>
+          <td (click)="populateForm(pd)">{{pd.phone}}</td>
+          <td (click)="populateForm(pd)">{{pd.country}}</td>
+          <td (click)="populateForm(pd)">{{pd.city}}</td>
+          <td (click)="populateForm(pd)">{{pd.address}}</td>
+          <td (click)="populateForm(pd)">{{pd.zipCode}}</td>
+
+          <td (click)="populateForm(pd)">{{pd.gender}}</td>
+          <td (click)="populateForm(pd)">{{pd.role}}</td>
+          <td (click)="populateForm(pd)">{{pd.education}}</td>
+          <td (click)="populateForm(pd)">{{pd.dateOfBirth}}</td>
+
+
+          <td>
+            <button class="btn btn-danger" (click)="onDelete(pd.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+  </div>
+</div>

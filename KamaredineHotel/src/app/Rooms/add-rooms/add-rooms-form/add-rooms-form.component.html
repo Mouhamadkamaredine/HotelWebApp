@@ -1,0 +1,144 @@
+<app-navbar></app-navbar>
+<div class="banner">
+<div class="row">
+  <div class="col s6">
+    <form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+
+      <div class="mb-3">
+        <label for="bedType">Room Number</label>
+        <input class="form-control" id="exampleFormControlSelect1" name="roomNb" ngModel required #roomNb="ngModel" [(ngModel)]="service.formData.roomNb">
+
+
+      </div>
+      <div class="mb-3">
+        <label for="title">Room Name <span class="text-muted"></span></label>
+
+        <input class="form-control" id="title" name="title" ngModel required #title="ngModel" [(ngModel)]="service.formData.roomName">
+
+
+
+
+        <div *ngIf="title.invalid && (title.dirty || title.touched)"
+             class="alert alert-danger">
+          <div *ngIf="title.errors?.['required']">
+            Room Name is required.
+          </div>
+          <div *ngIf="title.errors?.['minlength']">
+            Room Name must be at least 4 characters long.
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="descreption">Descreption <span class="text-muted"></span></label>
+        <input type="text" class="form-control" name="descreption" id="descreption" placeholder="descreption"
+               #descreption="ngModel"
+               [(ngModel)]="service.formData.descreption"
+               required minlength="4"
+               ngModel>
+        <div *ngIf="descreption.invalid && (descreption.dirty || descreption.touched)"
+             class="alert alert-danger">
+          <div *ngIf="descreption.errors?.['required']">
+            Descreption is required.
+          </div>
+          <div *ngIf="descreption.errors?.['minlength']">
+            Descreption must be at least 4 characters long.
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="mb-3">
+        <label for="bedType">Bed Type</label>
+        <input class="form-control" id="exampleFormControlSelect1" name="bedType" ngModel required #bedType="ngModel" [(ngModel)]="service.formData.bedType">
+
+
+      </div>
+      <div class="mb-3">
+        <label for="guests">GUESTS</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="guests" ngModel required #guests="ngModel" [(ngModel)]="service.formData.geusts">
+
+          <option>2 </option>
+          <option>3 </option>
+          <option>4</option>
+          <option>5</option>
+
+
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="size">Size <span class="text-muted"></span></label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">m²</span>
+          <input type="text" class="form-control" ngModel required #size="ngModel" [(ngModel)]="service.formData.roomSize" [min]="0" name="size" id="size" placeholder="size">
+
+        </div>
+
+        <div *ngIf="size.invalid && (size.dirty || size.touched)" class="alert alert-danger">
+          <div *ngIf="size.errors?.['required']">
+            price is required.
+          </div>
+          <div *ngIf="size.errors?.['min']">minimum price is 0</div>
+
+        </div>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="price">Price <span class="text-muted"></span></label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" ngModel required #price="ngModel" [(ngModel)]="service.formData.cost" [min]="0" name="price" id="price" placeholder="Price">
+          <span class="input-group-text">.00</span>
+        </div>
+        <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
+          <div *ngIf="price.errors?.['required']">
+            price is required.
+          </div>
+          <div *ngIf="price.errors?.['min']">minimum price is 0</div>
+
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="ImageURL">Image URL <span class="text-muted"></span></label>
+        <input type="text" class="form-control" (change)="showPreview($event)" id="ImageURL" ngModel required #ImageURL="ngModel" [(ngModel)]="service.formData.roomImage" url name="ImageURL" placeholder="Image URL">
+        <div *ngIf="ImageURL.invalid && (ImageURL.dirty ||ImageURL.touched)" class="alert alert-danger">
+          <div *ngIf="ImageURL.errors?.['required']">
+            imageURL is required.
+          </div>
+
+          <div *ngIf="ImageURL.errors?.['url']">Enter a url</div>
+        </div>
+      </div>
+
+      <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+
+
+    </form>
+  </div>
+  <div class="col s6">
+    <div class="card" *ngIf="title.value" style="width: 24rem;">
+
+      <img [src]="ImageURL.value" class="card-img-top">
+
+      <div class="card-body">
+        <h2 class="card-title"><strong> {{roomNb.value}} - {{title.value}}</strong></h2>
+
+        <h3 class="card-title">{{descreption.value}}</h3>
+        <h4 class="card-title"><strong> BED TYPE :</strong> {{bedType.value}}</h4>
+
+        <h4 class="card-title"><strong> GUESTS:</strong> {{guests.value }} </h4>
+
+        <h4 class="card-text"> <strong>SIZE :</strong> {{size.value }} m²</h4>
+        <h2 class="card-text"><strong>PRICE</strong> {{price.value | currency:'USD':true}}</h2>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+  </div>

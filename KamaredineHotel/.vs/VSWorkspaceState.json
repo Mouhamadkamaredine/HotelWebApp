@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\Booking",
+    "\\src\\app\\Booking\\add-booking",
+    "\\src\\app\\Rooms",
+    "\\src\\app\\Rooms\\edit-rooms",
+    "\\src\\app\\Shared",
+    "\\src\\app\\Staff",
+    "\\src\\app\\Staff\\all-staff"
+  ],
+  "SelectedNode": "\\src\\app\\Booking\\add-booking\\add-booking.component.ts",
+  "PreviewInSolutionExplorer": false
+}

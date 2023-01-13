@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<div class="banner">
+  <div class="row">
+    <div class="col s6">
+      <form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+
+        <div class="mb-3">
+          <label for="bedType">Name</label>
+          <input class="form-control" id="exampleFormControlSelect1" name="name" ngModel required #name="ngModel" [(ngModel)]="service.formData.name">
+
+
+        </div>
+        <div class="mb-3">
+          <label for="title">Descreption <span class="text-muted"></span></label>
+
+          <input class="form-control" id="title" name="title" ngModel required #title="ngModel" [(ngModel)]="service.formData.title">
+
+
+
+
+          <div *ngIf="title.invalid && (title.dirty || title.touched)"
+               class="alert alert-danger">
+            <div *ngIf="title.errors?.['required']">
+              Room Name is required.
+            </div>
+            <div *ngIf="title.errors?.['minlength']">
+              Room Name must be at least 4 characters long.
+            </div>
+          </div>
+        </div>
+
+        
+
+        <div class="mb-3">
+          <label for="ImageURL">Image URL <span class="text-muted"></span></label>
+          <input type="text" class="form-control" (change)="showPreview($event)" id="ImageURL" ngModel required #ImageURL="ngModel" [(ngModel)]="service.formData.image" url name="ImageURL" placeholder="Image URL">
+          <div *ngIf="ImageURL.invalid && (ImageURL.dirty ||ImageURL.touched)" class="alert alert-danger">
+            <div *ngIf="ImageURL.errors?.['required']">
+              imageURL is required.
+            </div>
+
+            <div *ngIf="ImageURL.errors?.['url']">Enter a url</div>
+          </div>
+        </div>
+
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+
+
+      </form>
+    </div>
+    <div class="col s6">
+      <div class="card" *ngIf="name.value" style="width: 24rem;">
+
+        <img [src]="ImageURL.value" class="card-img-top">
+
+        <div class="card-body">
+          <h2 class="card-title"><strong> {{name.value}} </strong></h2>
+
+          <h3 class="card-title">{{title.value}}</h3>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

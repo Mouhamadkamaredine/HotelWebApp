@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search...">
+  <div class="row">
+    <div class="col-md-3 mx-auto my-5" *ngFor="let pd of service.list | filter:searchText" style="width: 22.5rem;  ">
+      <mdb-card>
+        <mdb-card-img [src]="pd.roomImage" class="card-img-top"> </mdb-card-img>
+
+        <mdb-card-body>
+          <mdb-card-title>
+            <h3><strong> {{pd.roomNb}}- {{pd.roomName}}</strong></h3>
+          </mdb-card-title>
+          <mdb-card-text>
+            <h3> {{pd.descreption}}</h3>
+          </mdb-card-text>
+
+
+          <mdb-card-text>
+            <strong> Bed Type: </strong>   {{pd.bedType}}
+          </mdb-card-text>
+
+          <mdb-card-text>
+            <strong> Geusts: </strong> {{pd.geusts}}
+          </mdb-card-text>
+          <mdb-card-text>
+            <strong> Room Size:</strong>  {{pd.roomSize}} m²
+          </mdb-card-text>
+          <mdb-card-text>
+            <strong>   Price :</strong> {{pd.cost}}$
+          </mdb-card-text>
+          <button mdbBtn class="btn btn-danger" (click)="onDelete(pd.id)">Delete</button>
+          <button mdbBtn class="btn btn-danger" (click)="OnEdit(pd.id)">Edit</button>
+         
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+
+
+
+  </div>
+
+</div>

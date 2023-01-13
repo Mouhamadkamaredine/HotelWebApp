@@ -1,0 +1,117 @@
+<app-navbar></app-navbar>
+<div class="banner">
+  <div class="row">
+    <div class="col s6">
+      <form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+
+        <div class="col-md-9 mb-3">
+          <label for="bedType">Name</label>
+          <input class="form-control" id="exampleFormControlSelect1" name="name" ngModel required #name="ngModel" [(ngModel)]="service.formData.descreption">
+
+
+        </div>
+        <div class="col-md-9 mb-3">
+          <label for="title">Descreption <span class="text-muted"></span></label>
+
+          <input class="form-control" id="title" name="title" ngModel required #title="ngModel" [(ngModel)]="service.formData.aboutUs">
+
+
+
+
+          <div *ngIf="title.invalid && (title.dirty || title.touched)"
+               class="alert alert-danger">
+            <div *ngIf="title.errors?.['required']">
+              Room Name is required.
+            </div>
+            <div *ngIf="title.errors?.['minlength']">
+              Room Name must be at least 4 characters long.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9 mb-3">
+          <label for="email">Email Address</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <input type="text" class="form-control" id="email" placeholder="example@gmail.com" required=""
+                   name="email"
+                   #email="ngModel"
+                   [(ngModel)]="service.formData.email">
+            <div class="invalid-feedback" style="width: 100%;">
+              Email Address is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9 mb-3">
+          <label for="phone">Phone Number1</label>
+          <div class="input-group">
+
+            <input type="text" class="form-control" id="phone" placeholder="Phone Number" required=""
+                   name="phone"
+                   #phone="ngModel"
+                   [(ngModel)]="service.formData.phone1">
+            <div class="invalid-feedback" style="width: 100%;">
+              Phone Number is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9 mb-3">
+          <label for="phone">Phone Number2</label>
+          <div class="input-group">
+
+            <input type="text" class="form-control" id="phone2" placeholder="Phone Number2" required=""
+                   name="phone2"
+                   #phone2="ngModel"
+                   [(ngModel)]="service.formData.phone2">
+            <div class="invalid-feedback" style="width: 100%;">
+              Phone Number is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-9 mb-3">
+            <label for="address">Address1</label>
+            <input type="text" class="form-control" id="address" placeholder="Mayfadoun Al Saha" required="" name="address1"
+                   #address1="ngModel"
+                   [(ngModel)]="service.formData.address1">
+            <div class="invalid-feedback">
+              Please enter your shipping address.
+            </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9 mb-3">
+              <label for="address">Address2</label>
+              <input type="text" class="form-control" id="address" placeholder="Mayfadoun Al Saha" required="" name="address2"
+                     #address2="ngModel"
+                     [(ngModel)]="service.formData.address2">
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-md-9 mb-3">
+                <label for="address">CopyRight</label>
+                <input type="text" class="form-control" id="address" placeholder="Mayfadoun Al Saha" required="" name="copyRight"
+                       #copyRight="ngModel"
+                       [(ngModel)]="service.formData.copyRight">
+                <div class="invalid-feedback">
+                  Please enter your shipping address.
+                </div>
+              </div>
+
+              </div>
+              <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+
+
+</form>
+    </div>
+ 
+  </div>
+</div>
+

@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+  <div class="container"  (submit)="onSubmit()" autocomplete="off">
+
+    <h1 ><strong>  Add Emmployees </strong>  </h1>
+    <form [formGroup]="service.formModel" >
+      <div class="form-group required">
+        <label>
+          Username
+        </label>
+        <input class="form-control" formControlName="UserName">
+        <div *ngIf="service.f['UserName'].touched && service.f['UserName'].invalid">
+          <small class="text-danger" *ngIf="service.f['UserName'].errors?.['required']">
+            Name is required!
+          </small>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>
+          Email
+        </label>
+        <input class="form-control" formControlName="Email">
+        <div *ngIf="service.f['Email'].touched && service.f['Email'].invalid">
+          <small class="text-danger" *ngIf="service.f['Email'].errors?.['email']">
+            Invalid email address!
+          </small>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>
+          FullName
+        </label>
+        <input class="form-control" formControlName="FullName">
+      </div>
+
+      <div [formGroup]="service.Passwords" >
+        <div class="form-group required">
+          <label>
+            Password
+          </label>
+          <input  type="password" class="form-control" formControlName="Password">
+          <div *ngIf="service.p['Password'].touched && service.p['Password'].invalid">
+            <small class="text-danger" *ngIf="service.p['Password'].errors?.['required']">
+              This is mandatory varible
+            </small>
+
+          </div>
+          <div *ngIf="service.p['Password'].touched && service.p['Password'].invalid">
+            <small class="text-danger" *ngIf="service.p['Password'].errors?.['minlength']">
+             minim 4
+            </small>
+
+          </div>
+
+        </div>
+
+        <div class="form-group required">
+          <label>
+            Confirm Password
+          </label>
+          <input  type="password" class="form-control" formControlName="ConfirmPassword">
+          <div *ngIf="service.p['ConfirmPassword'].touched && service.p['ConfirmPassword'].invalid">
+            <small class="text-danger" *ngIf="service.p['ConfirmPassword'].errors?.['required']">
+              This is mandatory varible
+            </small>
+
+          </div>
+          <div *ngIf="service.p['ConfirmPassword'].touched && service.p['ConfirmPassword'].invalid">
+            <small class="text-danger" *ngIf="service.p['ConfirmPassword'].errors?.['passwordMismatch']">
+             not match
+            </small>
+
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div  class="d-grid" >
+          <button type="submit" class="btn btn-outline-secondary btn-lg" [disabled]="!service.formModel.valid || !service.Passwords.valid">Sign Up</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
