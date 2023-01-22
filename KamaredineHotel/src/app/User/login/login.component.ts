@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private service: UserService, private router: Router, private toastr: ToastrService ) { }
   formModel = {
-    UserName: '',
-    Password: ''
+    Email: 'hassan@gmail.com',
+    Password: '123456'
   }
   ngOnInit(): void {
     if (localStorage.getItem('token') != null)

@@ -7,8 +7,8 @@ import { HttpClient } from "@angular/common/http";
 export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
-  readonly BaseURIR = 'https://localhost:7274/api/ApplicationUser/Register';
-  readonly BaseURIL = 'https://localhost:7274/api/ApplicationUser/Login';
+  readonly BaseURIR = 'https://localhost:7041/api/Auth/register';
+  readonly BaseURIL = 'https://localhost:7041/api/Auth/token';
   readonly BaseURIP = 'https://localhost:7274/api/UserProfail';
   formModel = this.fb.group({
     UserName: ['', Validators.required],
